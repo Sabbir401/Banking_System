@@ -9,4 +9,13 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function getSessionData()
+    {
+        $data = [
+            'userEmail' => session('user_email'),
+        ];
+
+        return response()->json($data);
+    }
 }
